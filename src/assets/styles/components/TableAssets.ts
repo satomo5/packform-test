@@ -12,12 +12,6 @@ export const TableMainHeader = (color?: string) => [
   `,
 ];
 
-export const TableIcon = css`
-  background-color: #fff;
-  width: 15px;
-  height: 1.5px;
-`;
-
 export const TableMainHeaderLeft = [
   SpaceBetween(),
   css`

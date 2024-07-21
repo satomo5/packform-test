@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export function currencyFormat(number: number) {
   const Currency = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -27,3 +29,23 @@ export function getRandomNet(withMinusNumber?: boolean) {
 
   return Math.floor(number); // Generates a random number between 0 and 100,000,000
 }
+
+// Function to get greeting based on the current hour
+export const getGreeting = (): string => {
+  const currentHour = moment().hour();
+
+  if (currentHour >= 5 && currentHour < 12) {
+    return "Good Morning";
+  } else if (currentHour >= 12 && currentHour < 17) {
+    return "Good Afternoon";
+  } else if (currentHour >= 17 && currentHour < 21) {
+    return "Good Evening";
+  } else {
+    return "Good Night";
+  }
+};
+
+// Function to format the current date and time
+export const getFormattedDateTime = (): string => {
+  return moment().format("dddd, D MMMM YYYY - hh:mm A");
+};

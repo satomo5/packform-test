@@ -9,13 +9,13 @@ import { COLORS } from "../../assets/styles/common/Color";
  * @param {string} size - The size of the separator.
  * @returns {Record<"vertical" | "horizontal", SerializedStyles>} - The styles for the separator.
  */
-const SEPARATOR_VARIANT = (size: string) => ({
+const SEPARATOR_VARIANT = (size: string, length: string) => ({
   /**
    * Styles for vertical separator.
    */
   vertical: css`
     width: ${size};
-    height: 100%;
+    height: ${length};
     background-color: ${COLORS["gray30"]};
   `,
   /**
@@ -23,7 +23,7 @@ const SEPARATOR_VARIANT = (size: string) => ({
    */
   horizontal: css`
     height: ${size};
-    width: 100%;
+    width: ${length};
     background-color: ${COLORS["gray30"]};
   `,
 });
@@ -41,13 +41,15 @@ function Separator({
   type = "horizontal",
   style,
   size = "1px",
+  length = "100%",
 }: {
   type?: "vertical" | "horizontal";
   style?: SerializedStyles;
   size?: string;
+  length?: string;
 }): JSX.Element {
   // Apply the styles based on the type and size
-  return <div css={[SEPARATOR_VARIANT(size)[type], style]} />;
+  return <div css={[SEPARATOR_VARIANT(size, length)[type], style]} />;
 }
 
 export default Separator;

@@ -3,6 +3,9 @@ import React from "react";
 import Navbar from "../organisms/Navbar";
 import { Container } from "../../assets/styles/common/Layout";
 import { SerializedStyles } from "@emotion/react";
+import Sidebar from "../organisms/Sidebar";
+import { SidebarProvider } from "../../hooks/useSidebar";
+import LayoutContainer from "../atoms/LayoutContainer";
 
 /**
  * Layout is a simple component that wraps the children with a navbar.
@@ -21,12 +24,16 @@ function Layout({
   style?: SerializedStyles;
 }) {
   return (
-    <>
-      {/* The navbar */}
-      <Navbar />
-      {/* The container for children */}
-      <div css={[Container, style]}>{children}</div>
-    </>
+    <SidebarProvider>
+      <LayoutContainer>
+        <Sidebar />
+        {/* The navbar */}
+        <Navbar />
+
+        {/* The container for children */}
+        <div css={[Container, style]}>{children}</div>
+      </LayoutContainer>
+    </SidebarProvider>
   );
 }
 

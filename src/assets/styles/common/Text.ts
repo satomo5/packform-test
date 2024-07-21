@@ -19,7 +19,7 @@ export const Italic = css`
 `;
 
 // font size
-const FONT_SIZE_VARIANT = {
+export const FONT_SIZE_VARIANT = {
   xs: 12,
   sm: 14,
   md: 18,

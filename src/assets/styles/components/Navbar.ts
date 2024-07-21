@@ -1,5 +1,10 @@
 import { css } from "@emotion/react";
-import { SpaceBetween } from "../common/Layout";
+import {
+  DEFAULT_MAX_WIDTH,
+  DEFAULT_WIDTH_SIDEBAR,
+  SpaceBetween,
+} from "../common/Layout";
+import { mq } from "../common/BreakPoint";
 
 export const NavbarMain = (isScrolled: boolean) => [
   css`
@@ -10,6 +15,7 @@ export const NavbarMain = (isScrolled: boolean) => [
     right: 0; // Align to right
     background-color: #fff; // Set background color
     transition: all 0.2s ease-in-out; // Add transition
+    z-index: 10; // Set z-index
   `,
   isScrolled &&
     css`
@@ -17,10 +23,15 @@ export const NavbarMain = (isScrolled: boolean) => [
     `,
 ];
 
-export const NavbarContainer = [
+export const NavbarContainer = (isOpen: boolean) => [
   SpaceBetween(),
   css`
-    max-width: 600px;
+    max-width: ${DEFAULT_MAX_WIDTH};
     margin: 0 auto;
+    transition: padding-left 0.3s ease;
+
+    ${mq.xl} {
+      padding-left: ${isOpen ? DEFAULT_WIDTH_SIDEBAR : "0px"};
+    }
   `,
 ];

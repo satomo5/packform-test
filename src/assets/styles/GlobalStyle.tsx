@@ -193,6 +193,11 @@ const GlobalStyles = () => (
         border-spacing: 0;
       }
 
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
       button {
         background: none;
         border: none;

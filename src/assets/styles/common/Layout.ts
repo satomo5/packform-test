@@ -1,6 +1,9 @@
 import { css } from "@emotion/react";
+import { mq } from "./BreakPoint";
 
 const DEFAULT_GAP = "16px";
+export const DEFAULT_MAX_WIDTH = "1200px";
+export const DEFAULT_WIDTH_SIDEBAR = "260px";
 
 // layout position
 export const FlexX = (gap?: string) => css`
@@ -63,7 +66,15 @@ export const Square = ({
 
 // layout container
 export const Container = css`
-  max-width: 600px;
+  max-width: ${DEFAULT_MAX_WIDTH};
   margin: 0 auto;
-  padding: 88px 12px 40px;
+  padding: 88px 16px 30px;
+
+  ${mq.xl} {
+    padding: 120px 20px 40px;
+  }
+`;
+
+export const Pointer = css`
+  cursor: pointer;
 `;
